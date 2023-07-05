@@ -13,10 +13,20 @@ const app = Vue.createApp({
     },
     computed:{
         monsterBarStyle(){
-            return {width: this.monsterHealth + '%'};
+            if(this.monsterHealth <= 0){
+                return {width: '0%'};
+            }
+            else{
+                return {width: this.monsterHealth + '%'};
+            }
         },
         playerBarStyle(){
-            return {width: this.playerHealth + '%'};
+            if(this.playerHealth <= 0){
+                return {width: '0%'};
+            }
+            else{
+                return {width: this.playerHealth + '%'};
+            }
         },
         mayUseAttack(){
             return this.currentRound % 3 !== 0;
@@ -48,6 +58,16 @@ const app = Vue.createApp({
             else{
                 this.playerHealth += healValue;
             }
+        },
+        newGame(){
+            this.currentRound = 0;
+            this.playerHealth = 100;
+            this.monsterHealth = 100;
+            this.winner = null;
+        },
+        giveUp(){
+            this.winner = 'monster';
+            this.playerHealth = 0;
         }
     },
     watch: {
