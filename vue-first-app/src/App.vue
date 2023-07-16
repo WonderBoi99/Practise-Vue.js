@@ -1,15 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <TagWords></TagWords>
+  <img alt="Vue logo" src="https://benevity-wrap-up.s3.amazonaws.com/CallForAction">
 </template>
 
 <script>
-import TagWords from './components/TagWords.vue'
 
 export default {
   name: 'App',
   components: {
-    TagWords
+
   }
 }
 </script>
