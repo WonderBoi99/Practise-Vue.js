@@ -2,7 +2,7 @@
   <section>
     <header>
       <h1>My Friends</h1>
-      <active-user :firstname="BOB" :userage="23"></active-user>
+      <active-user :firstname="users.name" :userage="users.age"></active-user>
       <user-data></user-data>
     </header>
     <ul>
@@ -17,13 +17,11 @@ export default {
   components: { ActiveUser, UserData },
   data() {
     return {
-      users: [
-        {
+      users: {
           id: "manuel",
           name: "Manuel Lorenz",
           age: "23",
-        },
-      ],
+      }
     };
   },
 };
