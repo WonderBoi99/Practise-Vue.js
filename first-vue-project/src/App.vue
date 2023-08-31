@@ -1,34 +1,35 @@
 <template>
-  <section>
-    <header>
-      <h1>My Friends</h1>
-      <active-user :firstname="users.name" :userage="users.age"></active-user>
-      <user-data></user-data>
-    </header>
-    <ul>
-    </ul>
-  </section>
+  <div>
+    <the-header></the-header>
+    <badge-list></badge-list>
+    <user-info
+      :full-name="activeUser.name"
+      :info-text="activeUser.description"
+      :role="activeUser.role"
+    ></user-info>
+  </div>
 </template>
 
 <script>
-import ActiveUser from './components/ActiveUser.vue';
-import UserData from './components/UserData.vue';
 export default {
-  components: { ActiveUser, UserData },
   data() {
     return {
-      users: {
-          id: "manuel",
-          name: "Manuel Lorenz",
-          age: "23",
-      }
+      activeUser: {
+        name: 'Maximilian Schwarzmüller',
+        description: 'Site owner and admin',
+        role: 'admin',
+      },
     };
   },
 };
 </script>
 
 <style>
+html {
+  font-family: sans-serif;
+}
 
-
-
+body {
+  margin: 0;
+}
 </style>
