@@ -1,41 +1,34 @@
 <template>
-  <div>
-    <active-element
-      :topic-title="activeTopic && activeTopic.title"
-      :text="activeTopic && activeTopic.fullText"
-    ></active-element>
-    <knowledge-base :topics="topics" @select-topic="activateTopic"></knowledge-base>
-  </div>
+  <section>
+    <header>
+      <h1>My Friends</h1>
+    </header>
+    <ul>
+      <friend-contact></friend-contact>
+      <friend-contact></friend-contact>
+    </ul>
+  </section>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      topics: [
+      friends: [
         {
-          id: 'basics',
-          title: 'The Basics',
-          description: 'Core Vue basics you have to know',
-          fullText:
-            'Vue is a great framework and it has a couple of key concepts: Data binding, events, components and reactivity - that should tell you something!',
+          id: "manuel",
+          name: "Manuel Lorenz",
+          phone: "0123 45678 90",
+          email: "manuel@localhost.com",
         },
         {
-          id: 'components',
-          title: 'Components',
-          description:
-            'Components are a core concept for building Vue UIs and apps',
-          fullText:
-            'With components, you can split logic (and markup) into separate building blocks and then combine those building blocks (and re-use them) to build powerful user interfaces.',
+          id: "julie",
+          name: "Julie Jones",
+          phone: "0987 654421 21",
+          email: "julie@localhost.com",
         },
       ],
-      activeTopic: null,
     };
-  },
-  methods: {
-    activateTopic(topicId) {
-      this.activeTopic = this.topics.find((topic) => topic.id === topicId);
-    },
   },
 };
 </script>
@@ -45,56 +38,55 @@ export default {
   box-sizing: border-box;
 }
 html {
-  font-family: sans-serif;
+  font-family: "Jost", sans-serif;
 }
 body {
   margin: 0;
 }
-section {
+header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  margin: 2rem auto;
-  max-width: 40rem;
+  margin: 3rem auto;
+  border-radius: 10px;
   padding: 1rem;
-  border-radius: 12px;
+  background-color: #58004d;
+  color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
 }
-
-ul {
-  list-style: none;
+#app ul {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
+  list-style: none;
 }
-
-li {
-  border-radius: 12px;
-  border: 1px solid #ccc;
+#app li {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 1rem auto;
+  border-radius: 10px;
   padding: 1rem;
-  width: 15rem;
-  margin: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-h2 {
-  margin: 0.75rem 0;
   text-align: center;
+  width: 90%;
+  max-width: 40rem;
 }
-
-button {
+#app h2 {
+  font-size: 2rem;
+  border-bottom: 4px solid #ccc;
+  color: #58004d;
+  margin: 0 0 1rem 0;
+}
+#app button {
   font: inherit;
-  border: 1px solid #c70053;
-  background-color: #c70053;
-  color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 30px;
   cursor: pointer;
+  border: 1px solid #ff0077;
+  background-color: #ff0077;
+  color: white;
+  padding: 0.05rem 1rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
 }
-
-button:hover,
-button:active {
-  background-color: #e24d8b;
-  border-color: #e24d8b;
+#app button:hover,
+#app button:active {
+  background-color: #ec3169;
+  border-color: #ec3169;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
 </style>
