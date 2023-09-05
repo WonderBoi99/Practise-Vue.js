@@ -3,7 +3,9 @@
         <base-button @click="switchSelection('stored-resource')" :mode="storeButtonMode">Stored Resources</base-button>
         <base-button @click="switchSelection('add-resource')" :mode="addButtonMode">Add Resource</base-button>
     </base-card>
-    <component :is="selection"></component>
+    <keep-alive>
+        <component :is="selection"></component>
+    </keep-alive>
 </template>
 
 <script>
@@ -36,7 +38,8 @@ export default {
     },
     provide(){
         return{
-            resources: this.storedResources
+            resources: this.storedResources,
+            addResource: this.addResource
         };
     },
     computed: {
@@ -50,6 +53,16 @@ export default {
     methods: {
         switchSelection(choice){
             this.selection = choice;
+        },
+        addResource(title, description, link){
+            const newResource = {
+                id: new Date().toDateString,
+                title: title,
+                description: description,
+                link: link 
+            }
+            this.storedResources.push(newResource);
+            this.selection = 'stored-resource';
         }
     }
 }
