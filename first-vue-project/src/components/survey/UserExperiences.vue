@@ -50,6 +50,9 @@ export default {
             this.results = temp;
         });
     }
+  },
+  mounted(){
+    this.loadData();
   }
 };
 </script>
