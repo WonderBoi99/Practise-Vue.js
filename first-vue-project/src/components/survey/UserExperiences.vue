@@ -6,7 +6,7 @@
         <base-button @click="loadData">Load Submitted Experiences</base-button>
       </div>
       <p v-if="isLoading">Loading ...</p>
-      <ul v-else>
+      <ul v-else-if="!isLoading && results && results.length > 0">
         <survey-result
           v-for="result in results"
           :key="result.id"
