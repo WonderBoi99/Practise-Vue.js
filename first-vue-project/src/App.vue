@@ -1,19 +1,27 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Vuex" v-if="isLoggedIn">
   <the-counter></the-counter>
     <button @click="increment">Add 1</button>
+  </base-container>
+  <base-container title="Auth">
+    <user-auth></user-auth>
   </base-container>
 </template>
 
 <script>
 import BaseContainer from './components/BaseContainer.vue';
 import TheCounter from './components/TheCounter.vue';
-import { mapActions} from 'vuex';
+import UserAuth from './components/UserAuth.vue';
+import { mapActions, mapGetters} from 'vuex';
 
 export default {
   components: {
     BaseContainer,
-    TheCounter
+    TheCounter,
+    UserAuth
+  },
+  computed:{
+        ...mapGetters(['isLoggedIn'])
   },
   methods:{
     // addOne(){
