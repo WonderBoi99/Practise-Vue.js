@@ -18,6 +18,13 @@ const store = createStore({
         getCounter(state){
             return state.counter;
         }
+    },
+    actions:{
+        increment(context){
+            setTimeout(function(){
+                context.commit('increment');
+            }, 2000)
+        }
     }
 });
 const app = createApp(App);
