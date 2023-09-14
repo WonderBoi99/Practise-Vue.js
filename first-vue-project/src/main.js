@@ -13,6 +13,11 @@ const store = createStore({
         increment(state){
             state.counter = state.counter + 1;
         }
+    },
+    getters:{
+        getCounter(state){
+            return state.counter;
+        }
     }
 });
 const app = createApp(App);
