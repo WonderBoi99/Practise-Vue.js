@@ -37,7 +37,20 @@ export default {
 <style>
 
 .animate {
-  transform: translateX(-50px);
+  animation: slide-left 2s ease-out;
+}
+
+@keyframes slide-left {
+  0%{
+    transform: translateX(0) scale(1);
+  }
+  60%{
+    transform: translateX(-100px) scale(2);
+  }
+  100%{
+    transform: translateX(-150px) scale(1);
+  }
+  
 }
 
 * {
@@ -68,7 +81,6 @@ button:active {
   height: 8rem;
   background-color: #290033;
   margin-bottom: 2rem;
-  transition: transform 0.3s ease-out;
 }
 .container {
   max-width: 40rem;
