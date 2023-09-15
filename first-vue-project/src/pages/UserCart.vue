@@ -18,16 +18,19 @@
 
 <script>
 import CartItem from '../components/cart/CartItem.vue';
+import { mapGetters } from 'vuex';
 
 export default {
-  inject: ['cart'],
+  // inject: ['cart'],
   components: {
     CartItem,
   },
   computed: {
-    cartTotal() {
-      return this.cart.total.toFixed(2);
-    }
+    // cartTotal() {
+    //   return this.cart.total.toFixed(2);
+    // },
+    ...mapGetters(['cart', 'cartTotal'])
+
   }
 };
 </script>
