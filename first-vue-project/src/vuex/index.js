@@ -44,6 +44,9 @@ const store = createStore({
         },
         cartTotal(state){
             return state.cart.total.toFixed(2);
+        },
+        isLoggedIn(state){
+          return state.isLoggedIn;
         }
     },
     mutations:{
@@ -76,6 +79,9 @@ const store = createStore({
             this.state.cart.qty++;
             this.state.cart.total += productData.price;
           },
+          isAuth(state, payload) {
+            this.state.isLoggedIn = payload.value;
+          },
     },
     actions:{
         remove(context, payload){
@@ -83,6 +89,12 @@ const store = createStore({
         },
         add(context, payload){
           context.commit('addProductToCart', payload);
+        },
+        login(context){
+          context.commit('isAuth', {value: true});
+        },
+        logout(context){
+          context.commit('isAuth', {value: false});
         }
     }
 });
